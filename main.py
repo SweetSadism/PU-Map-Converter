@@ -14,6 +14,7 @@ def translate_param(output, param_key, param_obj, task_key):
     # Still kinda unsure if this will work properly
     param_obj['valueType'] = param_obj.pop('unit')
     if 'timeUnit' not in param_obj.keys():
+        param_obj['value'] = param_obj['value'] or 0
         param_obj['timeUnit'] = 'minutes'
         if param_obj['value'] % 1440 == 0:
             param_obj['timeUnit'] = 'days'
